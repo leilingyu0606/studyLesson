@@ -370,3 +370,71 @@ $user = Db::name('user')
         ->select();
 ```
 
+② 可以使用数组（默认AND）
+
+③ 可以使用exp对数组中的元素拼接
+
+④ 多个where
+
+⑤ 多次出现一个字段 whereOr ( 否则会触发② )
+
+⑥ 闭包查询可以连缀
+
+⑦ 复杂或者不知道如何拼装时直接使用whereRaw
+
+⑧ 支持参数绑定
+
+```php
+$user = Db::name('user')
+       ->whereRaw('(username LIKE :username AND status =:status) OR id>:id',
+       ['username'=>'%小%','status'=>1, 'id'=>0])
+       ->select();
+```
+
+
+
+> #### lesson 18 数据库快捷查询
+
+① where的封装方法
+
+whereColumn(’field1‘,'op','field2') 比较两个字段
+
+② whereFieldName (FieldName是数据库里的字段名)
+
+③ getFieldbyFieldName(’fieldname‘,'field');
+
+④ when() 条件判断查询 => 等同于if
+
+
+
+> #### lesson 19 数据库事务与获取器
+
+（一）事务
+
+InnoDB->执行多个sql时，对相同数据执行操作时定义的先后顺序
+
+① 自动处理
+
+Db::Transaction(function(){需要执行的sql语句})
+
+② 手动处理
+
+```php
+Db::startTrans();
+try{
+    //需要执行的sql语句
+    Db::commit();
+}catch(\Exception){
+    echo '执行失败，回滚中';
+    Db::rollback();
+}
+
+
+```
+
+（二）获取器
+
+
+
+> #### lesson 20 数据库的数据集和代码提示
+
