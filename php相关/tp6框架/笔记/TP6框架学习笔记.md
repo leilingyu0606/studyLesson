@@ -438,3 +438,25 @@ try{
 
 > #### lesson 20 数据库的数据集和代码提示
 
+
+
+### 模型
+
+> #### lesson 21 模型的定义方式
+
+定义一个和数据表相匹配的模型
+
+class User extends Model
+
+
+
+### 路由
+
+> #### lesson 40 路由的定义
+
+路由：让URL地址栏更规范
+
+config/app.php 开启路由	
+
+路由配置在config/route.php 定义在route/app.php
+
