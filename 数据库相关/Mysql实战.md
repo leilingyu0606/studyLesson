@@ -186,7 +186,11 @@ MYSQL中每条更新记录都会记录一条回滚操作 -> 同一条记录在�
 
 #### 事务的启动
 
-① 显示启动 BEGIN 或 START TRANSACTION 提交 COMMIT 回滚 ROLLBACK
+① 显示启动 BEGIN 或 START TRANSACTION 
+
+提交 COMMIT 
+
+回滚 ROLLBACK
 
 ② set autocommit = 0 会关闭自动提交功能 一直持续到执行COMMIT | ROLLBACK 或者 断开连接 （和有些客户端连接框架有关
 
