@@ -391,6 +391,14 @@ alter table T NOWAIT ( WAIT N ) add column ...
 
 
 
+## 实践篇
+
+### 01 | 普通索引和唯一索引
+
+
+
+
+
 
 
 
