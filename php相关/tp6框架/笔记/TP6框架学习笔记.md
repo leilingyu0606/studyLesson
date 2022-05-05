@@ -444,9 +444,73 @@ try{
 
 > #### lesson 21 模型的定义方式
 
-定义一个和数据表相匹配的模型
+① 定义一个和数据库里的表相匹配的模型
 
 class User extends Model
+
+② 模型会自动对应数据表（记得去除前缀）
+
+如 tp_user => User
+
+③ 通过User::* 方法名去调用 如select()等
+
+④ 别名设置（防止重复命名的冲突）
+
+use app\model\User as 表的别名
+
+⑤ 初始化操作
+
+
+
+> #### lesson 22 模型的新增和删除
+
+**① 实例化**
+
+$user = new User(); (实例化（表名）)
+
+$user->字段名 = ’value‘;
+
+$user->save();
+
+也可以通过save([value_array])的方式进行传值修改；
+
+allowField()方法：只允许方法内确认的字段才能赋值
+
+replace() 方法：实现REPLACE INTO
+
+saveAll() 方法：批量存储
+
+**② 静态方法::create()创建数据**
+
+不需要实例化
+
+create([value_array],[allow_filed],bool false);
+
+默认insert true时为replace
+
+**③ 数据删除**
+
+$user -> User::find(id);
+
+$user->delete;
+
+destroy(主键 or [主键数组]) 静态方法 通过主键直接删除
+
+or User::destroy(function($query)){$query->where()}
+
+或者通过User::where(条件)->delete();
+
+
+
+>#### lesson 23 模型数据更新
+
+① 更新数据
+
+
+
+
+
+
 
 
 
